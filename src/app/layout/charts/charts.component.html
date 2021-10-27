@@ -1,0 +1,85 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Usuario'" [icon]="'fa fa-fw fa-edit'"></app-page-header>
+    <div class="row">
+        <div class="d-flex justify-content-center align-items-center container ">
+            <div class="card mb-8">
+                <div class="container">
+                    <div class="reglist">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let registration of registrations; let i = index">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ registration.nombres }}</td>
+                            <td>{{ registration.apellidos }}</td>
+                            <td>{{ registration.email }}</td>
+                            <!-- <td>{{ registration.country }}</td> -->
+                            <td>
+                              <button type="button" class="btn btn-info" (click)="onEdit(i)">Editar</button>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-danger" (click)="onDelete(i)">Eliminar</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="text-right">
+                        <button type="submit" class="btn btn-primary" (click)="onNew()">Nuevo</button>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="regentry" *ngIf="showNew" >
+                      <form (ngSubmit)="onSave()">
+                        <div class="form-group row">
+                          <label for="nombres-input" class="col-2 col-form-label">Nombres</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" [(ngModel)]="regModel.nombres" name="nombres">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="apellidos-input" class="col-2 col-form-label">Apellidos</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" [(ngModel)]="regModel.apellidos" name="apellidos">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                          <div class="col-10">
+                            <input class="form-control" type="email" [(ngModel)]="regModel.email" name="email">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="example-password-input" class="col-2 col-form-label">Password</label>
+                          <div class="col-10">
+                            <input class="form-control" type="password" [(ngModel)]="regModel.password" name="password">
+                          </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                          <label for="city-input" class="col-2 col-form-label">Country</label>
+                          <div class="col-10 dropdown" ngbDropdown myDrop="ngbDropdown">
+                            <button type="button" class="btn btn-outline-primary" id="dropdownManual" name="country" ngbDropdownToggle>{{regModel.country}}</button>
+                            <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                              <button type="button" class="dropdown-item" *ngFor="let country of countries" (click)="onChangeCountry(country)">{{country}}</button>
+                            </div>
+                          </div>
+                        </div> -->
+                        <div>
+                            <button type="submit" class="btn btn-success">{{submitType}}</button>
+                            <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
+                       </div>
+                       </form>
+                    </div>
+                  </div>
+            </div>
+        </div>              
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div [@routerTransition]>
+    <h2 class="text-muted"> <small></small></h2>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template *ngFor="let slider of sliders" ngbSlide>
+                    <img
+                        [src]="slider.imagePath"
+                        alt="Random first slide"
+                        class="img-fluid mx-auto d-block"
+                        width="100%"
+                    />
+                    <div class="carousel-caption">
+                        <h2 style="color: black;">{{ slider.label }}</h2>
+                        <p style="color: black;">{{ slider.text }}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr />
+    <!-- <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [count]="26" [icon]="'fa-comments'" [label]="'New Comments!'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'warning'" [count]="12" [icon]="'fa-tasks'" [label]="'New task!'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat
+                [bgClass]="'success'"
+                [count]="124"
+                [icon]="'fa-shopping-cart'"
+                [label]="'New Orders!'"
+            ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [count]="13" [icon]="'fa-support'" [label]="'New Tickets!'"></app-stat>
+        </div>
+    </div> -->
+    <!-- <hr /> -->
+    <!-- <ngb-alert (close)="closeAlert(alert)" *ngFor="let alert of alerts" [type]="alert.type">{{
+        alert.message
+    }}</ngb-alert>
+    <hr /> -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header"><i class="fa fa-clock-o fa-fw"></i><b>MISIÓN</b></div>
+                <!-- /.card-header -->
+                <!-- <app-timeline></app-timeline> -->
+                <!-- /.card-body -->
+                <div style="color: #222;" class="jumbotron text-center">
+                    <p style="text-align: justify;">Implantar y desarrollar un nuevo concepto de odontología multidisciplinar, capaz de ofertar y realizar todo tipo de tratamientos dentales, y teniendo como objetivos principales:</p>
+                    <ul>
+                        <li><p style="text-align: justify;">Solucionar los problemas bucodentales de nuestros pacientes.</p></li>
+                        <li><p style="text-align: justify;">Concienciar a la sociedad de la importancia y necesidad de cuidar la salud bucodental, a través del seguimiento y la prevención.</p></li>
+                        <li><p style="text-align: justify;">Investigar y desarrollar nuevas técnicas y materiales que permitan dar soluciones a todos los tratamientos que se realizan en nuestra clínica.</p></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header"><i class="fa fa-bell fa-fw"></i><b>VISIÓN</b></div>
+                <!-- /.card-header -->
+                <!-- <app-notification></app-notification> -->
+                <!-- /.card-body -->
+                <div style="color: #222;" class="jumbotron text-center">
+                    <p style="text-align: justify;"><strong>Clínica Odontológica "Potosí"</strong>, es una organización que pretende ser un referente a seguir dentro del sector de la odontología, por la calidad de su trabajo y por el trato humano.</p>
+                    <p style="text-align: justify;">Para ello hacemos especial hincapié en el trato preferente a nuestros pacientes, poniendo todo nuestro saber hacer para solucionar de la forma mas satisfactoria sus problemas de salud dental.</p>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <app-chat></app-chat>
+            <!-- /.card .chat-card -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+</div>

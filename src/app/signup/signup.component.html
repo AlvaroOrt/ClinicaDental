@@ -1,0 +1,64 @@
+<div [@routerTransition] class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logoDental2.png" width="150px" />
+            <h1>Clínica Odontológica "Potosí"</h1>
+            <form role="form" [formGroup]="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input
+                            onKeyUp="this.value=this.value.toUpperCase();"
+                            [placeholder]="'Full Name' | translate"
+                            formControlName="fullname"
+                            pattern="[A-Z ]+"
+                            class="form-control input-underline input-lg"
+                            type="text"
+                            required=""
+                            [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }"
+                        />
+                        <div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
+                            <div *ngIf="f.fullname.errors.required">Nombre es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            [placeholder]="'Email' | translate"
+                            formControlName="email"
+                            class="form-control input-underline input-lg"
+                            type="email"
+                            required=""
+                        />
+                        <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Dirección es requerida</div>
+                            <div *ngIf="f.email.errors.email">Email es invalido</div>
+                        </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="password"
+                            [placeholder]="'Password' | translate"
+                            class="form-control input-underline input-lg"
+                            pattern=".{6,}"
+                            required=""
+                        />
+                        
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="password"
+                            [placeholder]="'Repeat Password' | translate"
+                            class="form-control input-underline input-lg"
+                            pattern=".{6,}"
+                            required=""
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                <a [routerLink]="['/login']"  class="btn rounded-btn">{{ 'Register' | translate }}</a
+                >&nbsp;</div>
+            </form>
+        </div>
+    </div>
+</div>
