@@ -1,10 +1,97 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="'Forms'" [icon]="'fa fa-fw fa-bar-chart-o'"></app-page-header>
-           <!-- <fieldset class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input class="form-control-file" id="exampleInputFile" type="file" />
-                </fieldset> -->
+    <app-page-header [heading]="'Historia Clinica'" [icon]="'fa fa-fw fa-bar-chart-o'"></app-page-header>
+   <body style="background:linear-gradient(30deg, rgb(20, 220, 177),rgb(21, 163, 104), rgb(8, 139, 226), rgb(20, 220, 177), rgb(3, 156, 156));">
+    <div class="row">
+        <div class="d-flex justify-content-center align-items-center container ">
+            <div class="card mb-8">
+                <div class="container">
+                    <input type="search" class="col-md-6" name="busqhistori" placeholder="Nombre completo,C.i..."> <a href=""> <img src="./assets/images/lupa.png" width="30" height="30"></a><br>
+                        <select class="col-md-6" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>Tratamientos</option>
+                            <option value="1">Blanqueamiento</option>
+                            <option value="2">Carillas bucales</option>
+                            <option value="3">Extracciones</option>
+                            <option value="4">Implantes</option>
+                            <option value="5">Ferula dental</option>
+                            <option value="6">Ortodoncia brackets</option>
+                            <option value="7">Ortodoncia invisible</option>
+                            <option value="8">Protesis dental removible</option>
+                            <option value="9">Periodontal</option>
+                          </select>   <br>
 
-                
-    
+                       <input type="text" class="col-md-2" placeholder="Costo">
+                          
+                    <div class="reglist">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Nombre Completo</th>
+                            <th>Direccion</th>
+                            <th>Carnet de Identidad</th>
+                            <th>Telefono</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let historia of historias; let i = index">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ historia.nombrescompleto }}</td>
+                            <td>{{ historia.direccion }}</td>
+                            <td>{{ historia.ci }}</td>
+                            <td>{{ historia.tel }}</td>
+                            <!-- <td>
+                              <button type="button" class="btn btn-info" (click)="onEdit(i)">Editar</button>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-danger" (click)="onDelete(i)">Eliminar</button>
+                            </td> -->
+                          </tr>
+                        </tbody>
+                      </table>
+                      <textarea name="comentarios" rows="10" cols="40" placeholder="Diagnostico" class="table table-striped"></textarea>
+                      <!-- <div class="text-right">
+                        <button type="submit" class="btn btn-primary" (click)="onNew()">Nuevo</button>
+                      </div> -->
+                      <div><button type="submit" class="btn btn-success">{{submitType}}</button></div>
+                    </div>
+                    <br>
+                    <div class="regentry" *ngIf="showNew" >
+                      <form (ngSubmit)="onSave()">
+                        <div class="form-group row">
+                          <label for="nombrescompleto-input" class="col-2 col-form-label">Nombres Completo</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" [(ngModel)]="regModel.nombrescompleto" name="nombrescompleto">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="direccion-input" class="col-2 col-form-label">Direccion</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" [(ngModel)]="regModel.direccion" name="direccion">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="example-ci-input" class="col-2 col-form-label">Carnet de Identidad</label>
+                          <div class="col-10">
+                            <input class="form-control" type="text" [(ngModel)]="regModel.ci" name="ci">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="example-tel-input" class="col-2 col-form-label">Telefono</label>
+                          <div class="col-10">
+                            <input class="form-control" type="tel" [(ngModel)]="regModel.tel" name="tel">
+                          </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success">{{submitType}}</button>
+                            <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
+                       </div>
+                       </form>
+                    </div>
+                  </div>
+            </div>
+        </div>              
+    </div>
+    </body> 
 </div>
