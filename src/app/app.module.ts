@@ -11,6 +11,7 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { FormsModule } from '@angular/forms';
 import { ChartsComponent } from './layout/charts/charts.component';
 
+
 @NgModule({
     imports: [
         CommonModule,

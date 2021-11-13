@@ -19,8 +19,8 @@ const routes: Routes = [
         path: 'access-denied',
         loadChildren: () => import('./access-denied/access-denied.module').then((m) => m.AccessDeniedModule)
     },
-    { path: 'InnovaTec', loadChildren: () => import('./not-found/not-found.module').then((m) => m.NotFoundModule) },
-    { path: '**', redirectTo: 'InnovaTec' },
+    { path: 'SilverTec', loadChildren: () => import('./not-found/not-found.module').then((m) => m.NotFoundModule) },
+    { path: '**', redirectTo: 'SilverTec' },
 
     {
         path: 'registration',

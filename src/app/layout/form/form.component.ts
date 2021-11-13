@@ -6,7 +6,9 @@ class Historia{
         public nombrescompleto: string = '',
         public direccion: string = '',
         public ci: string = '',
-        public tel: string = ''
+        public tel: string = '',
+        public tratamiento: string = '',
+        public costo: number = 0
     ) {}
 }
 
@@ -54,10 +56,8 @@ export class FormComponent implements OnInit {
       this.historias.push(this.regModel);
     } else {
       // Actualice los valores de las propiedades existentes según el modelo.
-      this.historias[this.selectedRow].nombrescompleto = this.regModel.nombrescompleto;
-      this.historias[this.selectedRow].direccion = this.regModel.direccion;
-      this.historias[this.selectedRow].ci = this.regModel.ci;
-      this.historias[this.selectedRow].tel = this.regModel.tel;
+      this.historias[this.selectedRow].tratamiento = this.regModel.tratamiento;
+      this.historias[this.selectedRow].costo = this.regModel.costo;
     }
     // Ocultar la sección de entrada de registro.
     this.showNew = false;

@@ -28,9 +28,12 @@
     "@ngx-translate/http-loader": "6.0.0",
     "chart.js": "2.9.4",
     "core-js": "3.6.5",
+    "express": "^4.17.1",
     "font-awesome": "4.7.0",
+    "mongoose": "^6.0.12",
     "ng2-charts": "2.4.2",
     "rxjs": "6.6.3",
+    "signature_pad": "*",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },

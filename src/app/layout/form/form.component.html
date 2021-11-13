@@ -5,8 +5,11 @@
         <div class="d-flex justify-content-center align-items-center container ">
             <div class="card mb-8">
                 <div class="container">
-                    <input type="search" class="col-md-6" name="busqhistori" placeholder="Nombre completo,C.i..."> <a href=""> <img src="./assets/images/lupa.png" width="30" height="30"></a><br>
-                        <select class="col-md-6" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <form class="form-inline my-6 my-lg-0">
+                      <input aria-label="Buscar" class="form-control mr-sm-2" placeholder="Nombre completo,C.i..." type="search" />
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                          <select class="col-md-6" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>Tratamientos</option>
                             <option value="1">Blanqueamiento</option>
                             <option value="2">Carillas bucales</option>
@@ -17,18 +20,43 @@
                             <option value="7">Ortodoncia invisible</option>
                             <option value="8">Protesis dental removible</option>
                             <option value="9">Periodontal</option>
-                          </select>   <br>
+                          </select>  
+                          <div style="right:0px">
+                            <button type="submit" class="btn btn-primary" (click)="onNew()" name="add">Nuevo Tratamiento</button>
+                          </div> <br>
+                          <div class="regentry" *ngIf="showNew" >
+                            <form (ngSubmit)="onSave()">
+                              <div class="form-group row">
+                                <label for="tratamiento-input" class="col-3 col-form-label">Tratamiento</label>
+                                <div class="col-10">
+                                  <input class="form-control" type="text" [(ngModel)]="regModel.tratamiento" name="tratamiento">
+                                </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <label for="example-costo-input" class="col-3 col-form-label">Costo</label>
+                                <div class="col-10">
+                                  <input class="form-control" type="number" [(ngModel)]="regModel.costo" name="costo">
+                                </div>
+                              </div>
+                              
+                              <div>
+                                  <button type="submit" class="btn btn-success">{{submitType}}</button>
+                                  <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
+                             </div>
+                             </form>
+                          </div><br>
 
                        <input type="text" class="col-md-2" placeholder="Costo">
                           
                     <div class="reglist">
-                      <table class="table table-striped">
+                      <table class="table table-striped" name="tabla">
                         <thead>
                           <tr>
                             <th>#</th>
                             <th>Nombre Completo</th>
                             <th>Direccion</th>
-                            <th>Carnet de Identidad</th>
+                            <th>Carnet Identidad</th>
                             <th>Telefono</th>
                             <th></th>
                             <th></th>
@@ -57,38 +85,6 @@
                       <div><button type="submit" class="btn btn-success">{{submitType}}</button></div>
                     </div>
                     <br>
-                    <div class="regentry" *ngIf="showNew" >
-                      <form (ngSubmit)="onSave()">
-                        <div class="form-group row">
-                          <label for="nombrescompleto-input" class="col-2 col-form-label">Nombres Completo</label>
-                          <div class="col-10">
-                            <input class="form-control" type="text" [(ngModel)]="regModel.nombrescompleto" name="nombrescompleto">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="direccion-input" class="col-2 col-form-label">Direccion</label>
-                          <div class="col-10">
-                            <input class="form-control" type="text" [(ngModel)]="regModel.direccion" name="direccion">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="example-ci-input" class="col-2 col-form-label">Carnet de Identidad</label>
-                          <div class="col-10">
-                            <input class="form-control" type="text" [(ngModel)]="regModel.ci" name="ci">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="example-tel-input" class="col-2 col-form-label">Telefono</label>
-                          <div class="col-10">
-                            <input class="form-control" type="tel" [(ngModel)]="regModel.tel" name="tel">
-                          </div>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-success">{{submitType}}</button>
-                            <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
-                       </div>
-                       </form>
-                    </div>
                   </div>
             </div>
         </div>              
